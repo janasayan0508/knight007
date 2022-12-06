@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eLogSheetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FY" Type="int" />
+          <Property Name="Q" Type="int" />
+          <Property Name="DT" Type="date" />
+          <Property Name="VisibleTo" Type="varchar" MaxLength="50" />
+          <Property Name="MsgTitle" Type="varchar" MaxLength="150" />
+          <Property Name="MsgDesc" Type="varchar" MaxLength="250" />
+          <Property Name="MsgUrl" Type="varchar" MaxLength="150" />
+          <Property Name="MsgDtStart" Type="datetime" />
+          <Property Name="MsgDtEnd" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="LastLoginIP" Type="varchar" MaxLength="50" />
+          <Property Name="UserAgent" Type="varchar" MaxLength="500" />
+          <Property Name="DId" Type="varchar" MaxLength="20" />
+          <Property Name="FullName" Type="varchar" MaxLength="150" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Organization" Type="varchar" MaxLength="50" />
+          <Property Name="SCode" Type="varchar" MaxLength="50" />
+          <Property Name="M1" Type="varchar" MaxLength="150" />
+          <Property Name="M2" Type="varchar" MaxLength="150" />
+          <Property Name="M3" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Data">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FY" Type="int" />
+          <Property Name="Q" Type="int" />
+          <Property Name="DT" Type="date" />
+          <Property Name="DId" Type="int" />
+          <Property Name="SId" Type="int" />
+          <Property Name="MId" Type="int" />
+          <Property Name="EId" Type="int" />
+          <Property Name="TId" Type="int" />
+          <Property Name="PId" Type="int" />
+          <Property Name="PName" Type="varchar" MaxLength="50" />
+          <Property Name="PF" Type="varchar" MaxLength="50" />
+          <Property Name="PFT" Type="varchar" MaxLength="50" />
+          <Property Name="PFV" Type="varchar" MaxLength="50" />
+          <Property Name="PDT" Type="varchar" MaxLength="50" />
+          <Property Name="PDV" Type="varchar" MaxLength="150" />
+          <Property Name="intValue" Type="int" />
+          <Property Name="decimalValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="txtValue" Type="varchar" MaxLength="150" />
+          <Property Name="bitValue" Type="bit" />
+          <Property Name="dtValue" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Delay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FY" Type="int" />
+          <Property Name="Q" Type="int" />
+          <Property Name="DT" Type="date" />
+          <Property Name="DId" Type="int" />
+          <Property Name="SId" Type="int" />
+          <Property Name="MId" Type="int" />
+          <Property Name="EId" Type="int" />
+          <Property Name="TId" Type="int" />
+          <Property Name="PId" Type="int" />
+          <Property Name="PName" Type="varchar" MaxLength="50" />
+          <Property Name="PF" Type="varchar" MaxLength="50" />
+          <Property Name="PFT" Type="varchar" MaxLength="50" />
+          <Property Name="PFV" Type="varchar" MaxLength="50" />
+          <Property Name="PDT" Type="varchar" MaxLength="50" />
+          <Property Name="PDV" Type="varchar" MaxLength="150" />
+          <Property Name="DtStart" Type="datetime" />
+          <Property Name="DtEnd" Type="datetime" />
+          <Property Name="HH" Type="int" />
+          <Property Name="MM" Type="int" />
+          <Property Name="SS" Type="int" />
+          <Property Name="Agency" Type="varchar" MaxLength="50" />
+          <Property Name="Reason" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="50" />
+          <Property Name="Shifts" Type="int" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="Head" Type="varchar" MaxLength="50" />
+          <Property Name="MaxNo" Type="varchar" MaxLength="50" />
+          <Property Name="SName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DId" Type="int" />
+          <Property Name="MId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="50" />
+          <Property Name="IsEnabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Freq" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="NH" Type="int" />
+        </EntityType>
+        <EntityType Name="FValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FId" Type="int" />
+          <Property Name="FType" Type="varchar" MaxLength="50" />
+          <Property Name="FValue" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Incident">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FY" Type="int" />
+          <Property Name="Q" Type="int" />
+          <Property Name="DT" Type="date" />
+          <Property Name="DId" Type="int" />
+          <Property Name="SId" Type="int" />
+          <Property Name="MId" Type="int" />
+          <Property Name="EId" Type="int" />
+          <Property Name="TId" Type="int" />
+          <Property Name="PId" Type="int" />
+          <Property Name="PName" Type="varchar" MaxLength="50" />
+          <Property Name="PF" Type="varchar" MaxLength="50" />
+          <Property Name="PFT" Type="varchar" MaxLength="50" />
+          <Property Name="PFV" Type="varchar" MaxLength="50" />
+          <Property Name="IncDate" Type="datetime" />
+          <Property Name="Agency" Type="varchar" MaxLength="50" />
+          <Property Name="Reason" Type="varchar" MaxLength="150" />
+          <Property Name="BriefDesc" Type="varchar" MaxLength="500" />
+          <Property Name="ShiftInc" Type="varchar" MaxLength="150" />
+          <Property Name="IncLocation" Type="varchar" MaxLength="150" />
+          <Property Name="IncType" Type="varchar" MaxLength="150" />
+          <Property Name="MsrsTaken" Type="varchar" MaxLength="150" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="50" />
+          <Property Name="IsEnabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Parameter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DId" Type="int" />
+          <Property Name="MId" Type="int" />
+          <Property Name="EId" Type="int" />
+          <Property Name="TId" Type="int" />
+          <Property Name="SId" Type="int" />
+          <Property Name="FId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="150" />
+          <Property Name="Datatype" Type="varchar" MaxLength="50" />
+          <Property Name="IsNumber" Type="bit" />
+          <Property Name="Min" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Max" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Regex" Type="varchar" MaxLength="150" />
+          <Property Name="IsRequired" Type="bit" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="InpType" Type="varchar" MaxLength="20" />
+          <Property Name="InpValues" Type="varchar" MaxLength="250" />
+          <Property Name="InpField" Type="varchar" MaxLength="20" />
+          <Property Name="IsDP" Type="bit" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="50" />
+          <Property Name="IsEnabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="50" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Verification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="150" />
+          <Property Name="SCode" Type="varchar" MaxLength="50" />
+          <Property Name="CallBackUrl" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ExpiringOn" Type="datetime" />
+          <Property Name="Used" Type="int" />
+          <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceUsed" Type="varchar" MaxLength="50" />
+          <Property Name="UserAgent" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK__Equipment__DId__6ABAD62E">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Machine__DId__6BAEFA67">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Machine" Type="Self.Machine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Machine">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Section__DId__6CA31EA0">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Title__DId__6D9742D9">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Title" Type="Self.Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Title">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_GetAnnouncementsForDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetDashboardParametersByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetFreqDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetParametersListForDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetProductionParametersForDepttByrDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DId" Type="int" Mode="In" />
+          <Parameter Name="DT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetProductionParametersForDepttByrDateTEST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DId" Type="int" Mode="In" />
+          <Parameter Name="DT" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="eLogSheetModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delay" EntityType="Self.Delay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Frequency" EntityType="Self.Frequency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FValue" EntityType="Self.FValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Incident" EntityType="Self.Incident" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machine" EntityType="Self.Machine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parameter" EntityType="Self.Parameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Title" EntityType="Self.Title" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Verification" EntityType="Self.Verification" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Equipment__DId__6ABAD62E" Association="Self.FK__Equipment__DId__6ABAD62E">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Machine__DId__6BAEFA67" Association="Self.FK__Machine__DId__6BAEFA67">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Machine" EntitySet="Machine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Section__DId__6CA31EA0" Association="Self.FK__Section__DId__6CA31EA0">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Title__DId__6D9742D9" Association="Self.FK__Title__DId__6D9742D9">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Title" EntitySet="Title" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eLogSheetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FY" Type="Int32" />
+          <Property Name="Q" Type="Int32" />
+          <Property Name="DT" Type="DateTime" Precision="0" />
+          <Property Name="VisibleTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MsgTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MsgDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MsgUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MsgDtStart" Type="DateTime" Precision="3" />
+          <Property Name="MsgDtEnd" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserAgent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="M2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="M3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Datum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FY" Type="Int32" />
+          <Property Name="Q" Type="Int32" />
+          <Property Name="DT" Type="DateTime" Precision="0" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="SId" Type="Int32" />
+          <Property Name="MId" Type="Int32" />
+          <Property Name="EId" Type="Int32" />
+          <Property Name="TId" Type="Int32" />
+          <Property Name="PId" Type="Int32" />
+          <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PDV" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="intValue" Type="Int32" />
+          <Property Name="decimalValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="txtValue" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="bitValue" Type="Boolean" />
+          <Property Name="dtValue" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Delay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FY" Type="Int32" />
+          <Property Name="Q" Type="Int32" />
+          <Property Name="DT" Type="DateTime" Precision="0" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="SId" Type="Int32" />
+          <Property Name="MId" Type="Int32" />
+          <Property Name="EId" Type="Int32" />
+          <Property Name="TId" Type="Int32" />
+          <Property Name="PId" Type="Int32" />
+          <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PDV" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DtStart" Type="DateTime" Precision="3" />
+          <Property Name="DtEnd" Type="DateTime" Precision="3" />
+          <Property Name="HH" Type="Int32" />
+          <Property Name="MM" Type="Int32" />
+          <Property Name="SS" Type="Int32" />
+          <Property Name="Agency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Shifts" Type="Int32" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Head" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipments" Relationship="Self.FK__Equipment__DId__6ABAD62E" FromRole="Department" ToRole="Equipment" />
+          <NavigationProperty Name="Machines" Relationship="Self.FK__Machine__DId__6BAEFA67" FromRole="Department" ToRole="Machine" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK__Section__DId__6CA31EA0" FromRole="Department" ToRole="Section" />
+          <NavigationProperty Name="Titles" Relationship="Self.FK__Title__DId__6D9742D9" FromRole="Department" ToRole="Title" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="MId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Equipment__DId__6ABAD62E" FromRole="Equipment" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Freq" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="NH" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FId" Type="Int32" />
+          <Property Name="FType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FValue1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Incident">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FY" Type="Int32" />
+          <Property Name="Q" Type="Int32" />
+          <Property Name="DT" Type="DateTime" Precision="0" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="SId" Type="Int32" />
+          <Property Name="MId" Type="Int32" />
+          <Property Name="EId" Type="Int32" />
+          <Property Name="TId" Type="Int32" />
+          <Property Name="PId" Type="Int32" />
+          <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IncDate" Type="DateTime" Precision="3" />
+          <Property Name="Agency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reason" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BriefDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ShiftInc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IncLocation" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IncType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MsrsTaken" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Machine__DId__6BAEFA67" FromRole="Machine" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Parameter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="MId" Type="Int32" />
+          <Property Name="EId" Type="Int32" />
+          <Property Name="TId" Type="Int32" />
+          <Property Name="SId" Type="Int32" />
+          <Property Name="FId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Datatype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsNumber" Type="Boolean" />
+          <Property Name="Min" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Max" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Regex" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsRequired" Type="Boolean" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InpType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InpValues" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="InpField" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDP" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Section__DId__6CA31EA0" FromRole="Section" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Title__DId__6D9742D9" FromRole="Title" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Verification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CallBackUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ExpiringOn" Type="DateTime" Precision="3" />
+          <Property Name="Used" Type="Int32" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceUsed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserAgent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__DId__6ABAD62E">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Machine__DId__6BAEFA67">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Machine" Type="Self.Machine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Machine">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Section__DId__6CA31EA0">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Title__DId__6D9742D9">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Title" Type="Self.Title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Title">
+              <PropertyRef Name="DId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="eLogSheetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Announcements" EntityType="Self.Announcement" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Data" EntityType="Self.Datum" />
+          <EntitySet Name="Delays" EntityType="Self.Delay" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+          <EntitySet Name="Frequencies" EntityType="Self.Frequency" />
+          <EntitySet Name="FValues" EntityType="Self.FValue" />
+          <EntitySet Name="Incidents" EntityType="Self.Incident" />
+          <EntitySet Name="Machines" EntityType="Self.Machine" />
+          <EntitySet Name="Parameters" EntityType="Self.Parameter" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="Titles" EntityType="Self.Title" />
+          <EntitySet Name="Verifications" EntityType="Self.Verification" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__DId__6ABAD62E" Association="Self.FK__Equipment__DId__6ABAD62E">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Machine__DId__6BAEFA67" Association="Self.FK__Machine__DId__6BAEFA67">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Machine" EntitySet="Machines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Section__DId__6CA31EA0" Association="Self.FK__Section__DId__6CA31EA0">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Title__DId__6D9742D9" Association="Self.FK__Title__DId__6D9742D9">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Title" EntitySet="Titles" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetAnnouncementsForDate" ReturnType="Collection(eLogSheetModel.sp_GetAnnouncementsForDate_Result)">
+            <Parameter Name="DT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetDashboardParametersByDate" ReturnType="Collection(eLogSheetModel.sp_GetDashboardParametersByDate_Result)">
+            <Parameter Name="DT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetFreqDetails" ReturnType="Collection(eLogSheetModel.sp_GetFreqDetails_Result)" />
+          <FunctionImport Name="sp_GetParametersListForDepartment" ReturnType="Collection(eLogSheetModel.sp_GetParametersListForDepartment_Result)">
+            <Parameter Name="DId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetProductionParametersForDepttByrDate" ReturnType="Collection(eLogSheetModel.sp_GetProductionParametersForDepttByrDate_Result)">
+            <Parameter Name="DId" Mode="In" Type="Int32" />
+            <Parameter Name="DT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetProductionParametersForDepttByrDateTEST">
+            <Parameter Name="DId" Mode="In" Type="Int32" />
+            <Parameter Name="DT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetUserDetails" ReturnType="Collection(eLogSheetModel.sp_GetUserDetails_Result)">
+            <Parameter Name="UserId" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetAnnouncementsForDate_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FY" Nullable="true" />
+          <Property Type="Int32" Name="Q" Nullable="true" />
+          <Property Type="DateTime" Name="DT" Nullable="true" />
+          <Property Type="String" Name="VisibleTo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MsgTitle" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="MsgDesc" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MsgUrl" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="MsgDtStart" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="MsgDtEnd" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetDashboardParametersByDate_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FY" Nullable="true" />
+          <Property Type="Int32" Name="Q" Nullable="true" />
+          <Property Type="DateTime" Name="DT" Nullable="true" />
+          <Property Type="Int32" Name="DId" Nullable="true" />
+          <Property Type="Int32" Name="SId" Nullable="true" />
+          <Property Type="Int32" Name="MId" Nullable="true" />
+          <Property Type="Int32" Name="EId" Nullable="true" />
+          <Property Type="Int32" Name="TId" Nullable="true" />
+          <Property Type="Int32" Name="PId" Nullable="true" />
+          <Property Type="String" Name="PName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PF" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PFT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PFV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PDT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PDV" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="intValue" Nullable="true" />
+          <Property Type="Decimal" Name="decimalValue" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="txtValue" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="bitValue" Nullable="true" />
+          <Property Type="DateTime" Name="dtValue" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="InpType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="InpValues" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="InpField" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_GetFreqDetails_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Freq" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FValue" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="NH" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_GetParametersListForDepartment_Result">
+          <Property Type="Int32" Name="DId" Nullable="true" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PIcon" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="C" Nullable="true" />
+          <Property Type="String" Name="PA" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetProductionParametersForDepttByrDate_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FY" Nullable="true" />
+          <Property Type="Int32" Name="Q" Nullable="true" />
+          <Property Type="DateTime" Name="DT" Nullable="true" />
+          <Property Type="Int32" Name="DId" Nullable="true" />
+          <Property Type="Int32" Name="SId" Nullable="true" />
+          <Property Type="Int32" Name="MId" Nullable="true" />
+          <Property Type="Int32" Name="EId" Nullable="true" />
+          <Property Type="Int32" Name="TId" Nullable="true" />
+          <Property Type="Int32" Name="PId" Nullable="true" />
+          <Property Type="String" Name="PName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PF" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PFT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PFV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PDT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PDV" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="intValue" Nullable="false" />
+          <Property Type="Decimal" Name="decimalValue" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="txtValue" Nullable="false" MaxLength="150" />
+          <Property Type="Boolean" Name="bitValue" Nullable="false" />
+          <Property Type="DateTime" Name="dtValue" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="InpType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="InpValues" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="InpField" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_GetUserDetails_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="LastLogin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastLoginIP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserAgent" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DId" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Designation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Organization" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RLE" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eLogSheetModelStoreContainer" CdmEntityContainer="eLogSheetEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="eLogSheetModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="eLogSheetModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="VisibleTo" ColumnName="VisibleTo" />
+                <ScalarProperty Name="MsgTitle" ColumnName="MsgTitle" />
+                <ScalarProperty Name="MsgDesc" ColumnName="MsgDesc" />
+                <ScalarProperty Name="MsgUrl" ColumnName="MsgUrl" />
+                <ScalarProperty Name="MsgDtStart" ColumnName="MsgDtStart" />
+                <ScalarProperty Name="MsgDtEnd" ColumnName="MsgDtEnd" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="eLogSheetModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="eLogSheetModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="eLogSheetModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="eLogSheetModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="SCode" ColumnName="SCode" />
+                <ScalarProperty Name="M1" ColumnName="M1" />
+                <ScalarProperty Name="M2" ColumnName="M2" />
+                <ScalarProperty Name="M3" ColumnName="M3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Data">
+            <EntityTypeMapping TypeName="eLogSheetModel.Datum">
+              <MappingFragment StoreEntitySet="Data">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="PFV" ColumnName="PFV" />
+                <ScalarProperty Name="PDT" ColumnName="PDT" />
+                <ScalarProperty Name="PDV" ColumnName="PDV" />
+                <ScalarProperty Name="intValue" ColumnName="intValue" />
+                <ScalarProperty Name="decimalValue" ColumnName="decimalValue" />
+                <ScalarProperty Name="txtValue" ColumnName="txtValue" />
+                <ScalarProperty Name="bitValue" ColumnName="bitValue" />
+                <ScalarProperty Name="dtValue" ColumnName="dtValue" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delays">
+            <EntityTypeMapping TypeName="eLogSheetModel.Delay">
+              <MappingFragment StoreEntitySet="Delay">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="PFV" ColumnName="PFV" />
+                <ScalarProperty Name="PDT" ColumnName="PDT" />
+                <ScalarProperty Name="PDV" ColumnName="PDV" />
+                <ScalarProperty Name="DtStart" ColumnName="DtStart" />
+                <ScalarProperty Name="DtEnd" ColumnName="DtEnd" />
+                <ScalarProperty Name="HH" ColumnName="HH" />
+                <ScalarProperty Name="MM" ColumnName="MM" />
+                <ScalarProperty Name="SS" ColumnName="SS" />
+                <ScalarProperty Name="Agency" ColumnName="Agency" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="eLogSheetModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Shifts" ColumnName="Shifts" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Head" ColumnName="Head" />
+                <ScalarProperty Name="MaxNo" ColumnName="MaxNo" />
+                <ScalarProperty Name="SName" ColumnName="SName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="eLogSheetModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Frequencies">
+            <EntityTypeMapping TypeName="eLogSheetModel.Frequency">
+              <MappingFragment StoreEntitySet="Frequency">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Freq" ColumnName="Freq" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="NH" ColumnName="NH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FValues">
+            <EntityTypeMapping TypeName="eLogSheetModel.FValue">
+              <MappingFragment StoreEntitySet="FValue">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FId" ColumnName="FId" />
+                <ScalarProperty Name="FType" ColumnName="FType" />
+                <ScalarProperty Name="FValue1" ColumnName="FValue" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incidents">
+            <EntityTypeMapping TypeName="eLogSheetModel.Incident">
+              <MappingFragment StoreEntitySet="Incident">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="PFV" ColumnName="PFV" />
+                <ScalarProperty Name="IncDate" ColumnName="IncDate" />
+                <ScalarProperty Name="Agency" ColumnName="Agency" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="BriefDesc" ColumnName="BriefDesc" />
+                <ScalarProperty Name="ShiftInc" ColumnName="ShiftInc" />
+                <ScalarProperty Name="IncLocation" ColumnName="IncLocation" />
+                <ScalarProperty Name="IncType" ColumnName="IncType" />
+                <ScalarProperty Name="MsrsTaken" ColumnName="MsrsTaken" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="eLogSheetModel.Machine">
+              <MappingFragment StoreEntitySet="Machine">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parameters">
+            <EntityTypeMapping TypeName="eLogSheetModel.Parameter">
+              <MappingFragment StoreEntitySet="Parameter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="FId" ColumnName="FId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Datatype" ColumnName="Datatype" />
+                <ScalarProperty Name="IsNumber" ColumnName="IsNumber" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="Regex" ColumnName="Regex" />
+                <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="InpType" ColumnName="InpType" />
+                <ScalarProperty Name="InpValues" ColumnName="InpValues" />
+                <ScalarProperty Name="InpField" ColumnName="InpField" />
+                <ScalarProperty Name="IsDP" ColumnName="IsDP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="eLogSheetModel.Section">
+              <MappingFragment StoreEntitySet="Section">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="eLogSheetModel.Title">
+              <MappingFragment StoreEntitySet="Title">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Verifications">
+            <EntityTypeMapping TypeName="eLogSheetModel.Verification">
+              <MappingFragment StoreEntitySet="Verification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SCode" ColumnName="SCode" />
+                <ScalarProperty Name="CallBackUrl" ColumnName="CallBackUrl" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ExpiringOn" ColumnName="ExpiringOn" />
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="DeviceUsed" ColumnName="DeviceUsed" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="eLogSheetModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAnnouncementsForDate" FunctionName="eLogSheetModel.Store.sp_GetAnnouncementsForDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetAnnouncementsForDate_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="VisibleTo" ColumnName="VisibleTo" />
+                <ScalarProperty Name="MsgTitle" ColumnName="MsgTitle" />
+                <ScalarProperty Name="MsgDesc" ColumnName="MsgDesc" />
+                <ScalarProperty Name="MsgUrl" ColumnName="MsgUrl" />
+                <ScalarProperty Name="MsgDtStart" ColumnName="MsgDtStart" />
+                <ScalarProperty Name="MsgDtEnd" ColumnName="MsgDtEnd" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetDashboardParametersByDate" FunctionName="eLogSheetModel.Store.sp_GetDashboardParametersByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetDashboardParametersByDate_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="PFV" ColumnName="PFV" />
+                <ScalarProperty Name="PDT" ColumnName="PDT" />
+                <ScalarProperty Name="PDV" ColumnName="PDV" />
+                <ScalarProperty Name="intValue" ColumnName="intValue" />
+                <ScalarProperty Name="decimalValue" ColumnName="decimalValue" />
+                <ScalarProperty Name="txtValue" ColumnName="txtValue" />
+                <ScalarProperty Name="bitValue" ColumnName="bitValue" />
+                <ScalarProperty Name="dtValue" ColumnName="dtValue" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InpType" ColumnName="InpType" />
+                <ScalarProperty Name="InpValues" ColumnName="InpValues" />
+                <ScalarProperty Name="InpField" ColumnName="InpField" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetFreqDetails" FunctionName="eLogSheetModel.Store.sp_GetFreqDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetFreqDetails_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Freq" ColumnName="Freq" />
+                <ScalarProperty Name="FType" ColumnName="FType" />
+                <ScalarProperty Name="FValue" ColumnName="FValue" />
+                <ScalarProperty Name="NH" ColumnName="NH" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetParametersListForDepartment" FunctionName="eLogSheetModel.Store.sp_GetParametersListForDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetParametersListForDepartment_Result">
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="PC" ColumnName="PC" />
+                <ScalarProperty Name="PIcon" ColumnName="PIcon" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="PA" ColumnName="PA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetProductionParametersForDepttByrDate" FunctionName="eLogSheetModel.Store.sp_GetProductionParametersForDepttByrDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetProductionParametersForDepttByrDate_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="SId" ColumnName="SId" />
+                <ScalarProperty Name="MId" ColumnName="MId" />
+                <ScalarProperty Name="EId" ColumnName="EId" />
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="PFT" ColumnName="PFT" />
+                <ScalarProperty Name="PFV" ColumnName="PFV" />
+                <ScalarProperty Name="PDT" ColumnName="PDT" />
+                <ScalarProperty Name="PDV" ColumnName="PDV" />
+                <ScalarProperty Name="intValue" ColumnName="intValue" />
+                <ScalarProperty Name="decimalValue" ColumnName="decimalValue" />
+                <ScalarProperty Name="txtValue" ColumnName="txtValue" />
+                <ScalarProperty Name="bitValue" ColumnName="bitValue" />
+                <ScalarProperty Name="dtValue" ColumnName="dtValue" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InpType" ColumnName="InpType" />
+                <ScalarProperty Name="InpValues" ColumnName="InpValues" />
+                <ScalarProperty Name="InpField" ColumnName="InpField" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetProductionParametersForDepttByrDateTEST" FunctionName="eLogSheetModel.Store.sp_GetProductionParametersForDepttByrDateTEST" />
+          <FunctionImportMapping FunctionImportName="sp_GetUserDetails" FunctionName="eLogSheetModel.Store.sp_GetUserDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eLogSheetModel.sp_GetUserDetails_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="DId" ColumnName="DId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="SCode" ColumnName="SCode" />
+                <ScalarProperty Name="RLE" ColumnName="RLE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
